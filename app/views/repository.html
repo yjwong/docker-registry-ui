@@ -1,0 +1,38 @@
+<div layout="column" layout-fill>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Repository: {{ vm.name }}</h2>
+    </div>
+  </md-toolbar>
+</div>
+
+<md-content layout-padding>
+  <md-card>
+    <md-card-content>
+      <h2>Info</h2>
+      <p>To pull this repository, run:</p>
+      <code>docker pull {{ vm.registryBase }}/{{ vm.name }}</code>
+    </md-card-content>
+  </md-card>
+
+  <md-card>
+    <md-card-content>
+      <h2>Tags</h2>
+      <div layout="row" layout-align="center center" ng-if="!vm.tags">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <md-list>
+        <md-list-item class="md-2-line" ng-repeat="tag in vm.tags">
+          <div class="md-list-item-text">
+            <h3 ng-bind="tag.name"></h3>
+            <p ng-if="tag.manifest">
+              {{ tag.manifest.history[0].id | limitTo:8 }}
+              ({{ tag.manifest.history[0].created | amDateFormat:'MMMM Do YYYY, h:mm:ss a' }})
+            </p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</md-content>
+

@@ -1,0 +1,15 @@
+'use strict';
+
+/**
+ * @ngdoc service
+ * @name dockerRegistryUiApp.CONFIG
+ * @description
+ * # CONFIG
+ * Constant in the dockerRegistryUiApp.
+ */
+angular.module('dockerRegistryUiApp')
+  .constant('CONFIG', {
+    registryUsername: '',
+    registryPassword: '',
+    registryUrl: ''
+  });
