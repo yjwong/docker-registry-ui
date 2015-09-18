@@ -1,0 +1,5 @@
+# Registry configuration.
+registry:
+  username: 'REGISTRY_USERNAME'
+  password: 'REGISTRY_PASSWORD'
+  url: 'REGISTRY_URL'

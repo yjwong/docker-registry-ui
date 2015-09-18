@@ -70,7 +70,7 @@ angular
       .accentPalette('orange');
 
     // Set up Docker Registry.
-    dockerRegistryProvider.setUsername(CONFIG.registryUsername);
-    dockerRegistryProvider.setPassword(CONFIG.registryPassword);
-    dockerRegistryProvider.setRegistryUrl(CONFIG.registryUrl);
+    dockerRegistryProvider.setUsername(CONFIG.registry.username);
+    dockerRegistryProvider.setPassword(CONFIG.registry.password);
+    dockerRegistryProvider.setRegistryUrl(CONFIG.registry.url);
   });

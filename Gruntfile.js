@@ -15,7 +15,8 @@ module.exports = function (grunt) {
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
-    ngtemplates: 'grunt-angular-templates'
+    ngtemplates: 'grunt-angular-templates',
+    ngconstant: 'grunt-ng-constant'
   });
 
   // Configurable paths for the application
@@ -389,6 +390,20 @@ module.exports = function (grunt) {
       }
     },
 
+    // ng-constant provides per-configuration Angular constants.
+    ngconstant: {
+      options: {
+        name: grunt.file.readJSON('bower.json').moduleName,
+        dest: '.tmp/scripts/constants/config.js',
+        deps: false,
+        constants: {
+          CONFIG: require('config')
+        }
+      },
+      server: {},
+      dist: {}
+    },
+
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -430,6 +445,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:server',
       'wiredep',
       'sass:server',
       'autoprefixer:server',
@@ -454,6 +470,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:dist',
     'wiredep',
     'useminPrepare',
     'sass:dist',

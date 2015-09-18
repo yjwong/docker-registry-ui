@@ -1,0 +1,5 @@
+# Registry configuration.
+registry:
+  username: docker
+  password: docker
+  url: https://docker-registry.docker.com
