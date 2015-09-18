@@ -5,8 +5,13 @@ the V2 API of the Registry.
 
 ## Build & development
 
-To use this project, you need to configure the Registry specially to allow
-connections from browsers.
+This project works with endpoints that use HTTP Basic authentication. To
+configure the registry username, password and URL, copy 
+`app/scripts/services/config.default.js` to `app/scripts/services/config.js`
+and modify to your liking.
+
+You also need to configure the Registry specially to allow connections from
+browsers.
 
 For nginx, the following configuration works:
 
