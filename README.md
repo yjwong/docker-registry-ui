@@ -6,9 +6,8 @@ the V2 API of the Registry.
 ## Build & development
 
 This project works with endpoints that use HTTP Basic authentication. To
-configure the registry username, password and URL, copy 
-`app/scripts/services/config.default.js` to `app/scripts/services/config.js`
-and modify to your liking.
+configure the registry username, password and URL, copy `config/default.yml` to
+`config/your_environment.yml` and modify to your liking.
 
 You also need to configure the Registry specially to allow connections from
 browsers.
@@ -30,8 +29,12 @@ For nginx, the following configuration works:
         }
     }
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `env NODE_ENV=your_environment grunt` for building and
+`env NODE_ENV=your_environment grunt serve` for preview.
 
-## Testing
+## Provided Dockerfile
 
-Running `grunt test` will run the unit tests with karma.
+A build script to create a Docker image is also available.
+
+    ./build.sh your_environment
+
