@@ -32,9 +32,14 @@ For nginx, the following configuration works:
 Run `env NODE_ENV=your_environment grunt` for building and
 `env NODE_ENV=your_environment grunt serve` for preview.
 
+## Screenshot
+
+![Screenshot](https://cloud.githubusercontent.com/assets/1174849/9974203/9a043bc4-5eb7-11e5-8fc5-8ce28eb027b0.png)
+
 ## Provided Dockerfile
 
 A build script to create a Docker image is also available.
 
     ./build.sh your_environment
+    docker run -p 80:11000 -t yjwong/docker-registry-ui
 
