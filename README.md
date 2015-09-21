@@ -29,6 +29,14 @@ For nginx, the following configuration works:
         }
     }
 
+If you are not running a V1 registry, you might need to add this block to
+ensure that HTML is not returned to the Docker client when the /v1/ endpoints
+are accessed:
+
+    location /v1/ {
+      return 404;
+    }
+
 Run `env NODE_ENV=your_environment grunt` for building and
 `env NODE_ENV=your_environment grunt serve` for preview.
 
