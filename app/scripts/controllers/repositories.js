@@ -8,10 +8,11 @@
  * Controller of the dockerRegistryUiApp
  */
 angular.module('dockerRegistryUiApp')
-  .controller('RepositoriesCtrl', function ($state, $mdToast, dockerRegistry) {
+  .controller('RepositoriesCtrl', function ($state, $mdToast, $mdSidenav, dockerRegistry) {
     var scope = this;
 
     scope.openRepository = function openRepository(repository) {
+      $mdSidenav('left').close();
       $state.go('main.repository', { name: repository });
     };
 

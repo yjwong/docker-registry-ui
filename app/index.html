@@ -18,14 +18,7 @@
   </head>
   <body layout="column" ng-app="dockerRegistryUiApp">
     <!-- Add your site or application content here -->
-    <section layout="row" flex>
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2"
-                  md-component-id="left"
-                  md-is-locked-open="$mdMedia('gt-md')" ui-view="menu">
-      </md-sidenav>
-
-      <md-content ui-view="content" flex></md-content>
-    </section>
+    <section layout="row" flex ui-view="main"></section>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->

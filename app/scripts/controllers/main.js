@@ -8,10 +8,12 @@
  * Controller of the dockerRegistryUiApp
  */
 angular.module('dockerRegistryUiApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($mdMedia, $mdSidenav) {
+    var scope = this;
+
+    if (!$mdMedia('gt-md')) {
+      $mdSidenav('left', true).then(function (instance) {
+        instance.open();
+      });
+    }
   });

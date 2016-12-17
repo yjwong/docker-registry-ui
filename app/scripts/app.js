@@ -43,7 +43,12 @@ angular
       .state('main', {
         url: '/',
         views: {
-          menu: {
+          main: {
+            templateUrl: 'views/main.html',
+            controller: 'MainCtrl',
+            controllerAs: 'vm'
+          },
+          'menu@main': {
             templateUrl: 'views/repositories.html',
             controller: 'RepositoriesCtrl',
             controllerAs: 'vm'
@@ -53,7 +58,7 @@ angular
       .state('main.repository', {
         url: 'repositories/{name:repository}',
         views: {
-          'content@': {
+          'content@main': {
             templateUrl: 'views/repository.html',
             controller: 'RepositoryCtrl',
             controllerAs: 'vm'
