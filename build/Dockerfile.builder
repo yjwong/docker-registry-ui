@@ -1,6 +1,5 @@
-FROM node:0.12
+FROM node:6.9.2
 MAINTAINER Wong Yong Jie <yjwong92@gmail.com>
 
-RUN npm install -g grunt-cli bower
 ADD . /app
 

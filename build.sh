@@ -11,9 +11,8 @@ docker run --rm \
     -t yjwong/docker-registry-ui-builder \
     /bin/sh -c "
         npm install;
-        bower --allow-root --config.interactive=false install;
-        grunt"
+        node_modules/.bin/bower --allow-root install;
+        node_modules/.bin/grunt"
 
 # Create the final container.
 docker build -t yjwong/docker-registry-ui -f build/Dockerfile .
-
