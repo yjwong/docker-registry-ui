@@ -8,14 +8,18 @@
  * Controller of the dockerRegistryUiApp
  */
 angular.module('dockerRegistryUiApp')
-  .controller('RepositoryCtrl', function ($stateParams, $q, dockerRegistry, $mdSidenav) {
+  .controller('RepositoryCtrl', function ($stateParams, $q, dockerRegistry, $mdSidenav, $mdMedia) {
     var scope = this;
     scope.name = $stateParams.name;
     scope.registryBase = dockerRegistry.getRegistryBase();
 
+    scope.shouldShowMenuButton = function () {
+      return !$mdMedia('gt-md');
+    };
+
     scope.toggleMenu = function () {
       $mdSidenav('left').toggle();
-    }
+    };
 
     dockerRegistry.getTags($stateParams.name)
       .then(function (tags) {

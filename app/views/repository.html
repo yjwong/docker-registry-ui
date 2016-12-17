@@ -1,8 +1,8 @@
 <div layout="column" layout-fill>
   <md-toolbar>
     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Repositories" ng-click="vm.toggleMenu()">
-        <md-icon md-font-icon="menu"></md-icon>
+      <md-button class="md-icon-button" aria-label="Repositories" ng-click="vm.toggleMenu()" ng-if="vm.shouldShowMenuButton()">
+        <md-icon md-font-set="material-icons">menu</md-icon>
       </md-button>
       <h2>Repository: {{ vm.name }}</h2>
     </div>
