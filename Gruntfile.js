@@ -75,15 +75,16 @@ module.exports = function (grunt) {
         options: {
           open: false,
           middleware: function (connect) {
+            const serveStatic = require('serve-static');
             return [
-              connect.static('.tmp'),
+              serveStatic('.tmp'),
               connect().use(
                 '/bower_components',
-                connect.static('./bower_components')
+                serveStatic('./bower_components')
               ),
               connect().use(
                 '/app/styles',
-                connect.static('./app/styles')
+                serveStatic('./app/styles')
               ),
               connect().use(require('connect-modrewrite')([[
                 '!',
@@ -100,7 +101,7 @@ module.exports = function (grunt) {
                 '\\.woff2$',
                 ' /index.html'
               ].join('')])),
-              connect.static(appConfig.app)
+              serveStatic(appConfig.app)
             ];
           }
         }
